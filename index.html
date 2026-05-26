@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saúva IA — Marketing, Publicidade e Inteligência Artificial</title>
+  <meta name="description" content="Saúva IA é uma agência de publicidade, marketing digital e inteligência artificial criada para transformar estratégia em execução com velocidade, contexto e consistência." />
+  <meta name="theme-color" content="#150607" />
+  <meta property="og:title" content="Saúva IA — A colônia de agentes para o seu marketing" />
+  <meta property="og:description" content="Estratégia, conteúdo, tráfego, automação e IA trabalhando como uma colônia para acelerar sua operação de marketing." />
+  <style>
+    :root {
+      --bg: #090405;
+      --bg-2: #150607;
+      --card: rgba(255,255,255,.07);
+      --card-2: rgba(255,255,255,.11);
+      --line: rgba(255,255,255,.14);
+      --text: #fff7f4;
+      --muted: #d8b9b3;
+      --red: #e32626;
+      --red-2: #9d111a;
+      --amber: #ffb35a;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+      --radius: 28px;
+      --max: 1180px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(227,38,38,.28), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(255,179,90,.16), transparent 28%),
+        linear-gradient(135deg, #070303 0%, #170607 52%, #050202 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: radial-gradient(circle at top, black, transparent 72%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(9,4,5,.62);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: .04em; }
+    .brand img { width: 124px; height: auto; display: block; filter: drop-shadow(0 10px 24px rgba(227,38,38,.24)); }
+    .brand span { display: none; }
+
+    .links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
+    .links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: .18s ease;
+      box-shadow: 0 12px 34px rgba(0,0,0,.24);
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.34); }
+    .btn.primary { background: linear-gradient(135deg, var(--red), var(--red-2)); color: white; }
+    .btn.secondary { background: rgba(255,255,255,.08); color: white; }
+
+    .hero { padding: 92px 0 72px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      border-radius: 999px;
+      color: #ffd5cc;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 7px rgba(227,38,38,.18); }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: .92;
+      letter-spacing: -.07em;
+    }
+    .grad { background: linear-gradient(135deg, #fff, #ffd3c7 45%, #ff4b4b); -webkit-background-clip: text; color: transparent; }
+    .lead { margin: 0 0 30px; max-width: 680px; color: var(--muted); font-size: clamp(18px, 2vw, 22px); line-height: 1.55; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .trust { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; color: #f0c9c2; font-size: 13px; }
+    .pill { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.06); }
+
+    .visual {
+      position: relative;
+      min-height: 510px;
+      border-radius: 40px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(227,38,38,.34), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow);
+    }
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .logo-stage {
+      position: absolute;
+      inset: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: rgba(255,255,255,.92);
+      padding: 34px;
+    }
+    .logo-stage img { width: min(100%, 430px); height: auto; display: block; }
+    .floating {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .mini {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(9,4,5,.74);
+      border-radius: 18px;
+      padding: 14px;
+      color: #ffe9e4;
+      font-size: 12px;
+      backdrop-filter: blur(16px);
+    }
+    .mini strong { display: block; color: white; font-size: 18px; margin-bottom: 3px; }
+
+    section { padding: 76px 0; }
+    .section-head { max-width: 760px; margin-bottom: 32px; }
+    .section-head h2 { margin: 0 0 12px; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -.045em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--card), rgba(255,255,255,.035));
+      border-radius: var(--radius);
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    }
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(227,38,38,.9), rgba(157,17,26,.9));
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.025em; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .colony {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(145deg, rgba(227,38,38,.16), rgba(255,255,255,.045));
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .panel h2 { margin-top: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -.045em; }
+    .panel p { color: var(--muted); line-height: 1.65; font-size: 17px; }
+    .agents { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .agent { padding: 16px; border-radius: 20px; background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.12); }
+    .agent b { display: block; margin-bottom: 4px; }
+    .agent span { color: var(--muted); font-size: 14px; }
+
+    .process { counter-reset: step; display: grid; gap: 14px; }
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.06);
+    }
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #fff;
+      color: var(--red-2);
+      font-weight: 900;
+    }
+    .step h3 { margin: 0 0 6px; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .cta {
+      padding: 54px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,179,90,.22), transparent 30%),
+        linear-gradient(135deg, rgba(227,38,38,.28), rgba(255,255,255,.07));
+      border: 1px solid rgba(255,255,255,.16);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { margin: 0 0 10px; font-size: clamp(32px, 4vw, 54px); line-height: 1; letter-spacing: -.045em; }
+    .cta p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.55; }
+
+    footer { padding: 36px 0 46px; color: #b9908a; border-top: 1px solid var(--line); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 920px) {
+      .links { display: none; }
+      .hero { padding-top: 58px; }
+      .hero-grid, .colony, .cta { grid-template-columns: 1fr; }
+      .visual { min-height: 420px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .floating { grid-template-columns: 1fr; }
+      .mini { padding: 10px 12px; }
+      .agents { grid-template-columns: 1fr; }
+      .cta { padding: 34px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 24px, var(--max)); }
+      .brand img { width: 104px; }
+      .nav .btn { min-height: 42px; padding: 0 14px; font-size: 13px; }
+      .actions .btn { width: 100%; }
+      .logo-stage { inset: 24px; padding: 20px; }
+      section { padding: 54px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap nav" aria-label="Navegação principal">
+      <a class="brand" href="#top" aria-label="Saúva IA">
+        <img src="assets/logo-sauva.png" alt="Logo Saúva IA" />
+        <span>Saúva IA</span>
+      </a>
+      <div class="links">
+        <a href="#servicos">Serviços</a>
+        <a href="#colonia">Colônia</a>
+        <a href="#processo">Processo</a>
+      </div>
+      <a class="btn primary" href="https://wa.me/5519981993690?text=Quero%20conversar%20sobre%20a%20Sa%C3%BAva%20IA" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Agência de marketing, publicidade e IA</div>
+          <h1>A colônia de agentes que coloca seu marketing em movimento.</h1>
+          <p class="lead">A Saúva IA une estratégia, criação, tráfego, automação e inteligência artificial para transformar ideias em entregas reais: campanhas, conteúdos, funis, relatórios e sistemas operando com contexto.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.me/5519981993690?text=Oi%2C%20quero%20entender%20como%20a%20Sa%C3%BAva%20IA%20pode%20ajudar%20minha%20empresa" target="_blank" rel="noopener">Falar com Tiago</a>
+            <a class="btn secondary" href="#servicos">Ver o que fazemos</a>
+          </div>
+          <div class="trust" aria-label="Destaques">
+            <span class="pill">Marketing digital</span>
+            <span class="pill">Social media</span>
+            <span class="pill">Tráfego pago</span>
+            <span class="pill">Automação com IA</span>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="Marca Saúva IA">
+          <div class="logo-stage">
+            <img src="assets/logo-sauva.png" alt="Saúva IA" />
+          </div>
+          <div class="floating">
+            <div class="mini"><strong>01</strong>Briefing com contexto</div>
+            <div class="mini"><strong>02</strong>Execução rápida</div>
+            <div class="mini"><strong>03</strong>Aprendizado contínuo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Uma operação full service para crescer com consistência.</h2>
+          <p>Do posicionamento à publicação. Da campanha ao relatório. Da ideia ao sistema funcionando.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">✦</div>
+            <h3>Estratégia e posicionamento</h3>
+            <p>Diagnóstico, oferta, público, mensagem, calendário e direção clara para cada canal.</p>
+          </article>
+          <article class="card">
+            <div class="icon">◉</div>
+            <h3>Conteúdo e social media</h3>
+            <p>Posts, carrosséis, roteiros, legendas, campanhas editoriais e presença digital com padrão.</p>
+          </article>
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Tráfego, funis e landing pages</h3>
+            <p>Campanhas pagas, páginas de conversão, chamadas para ação e acompanhamento de performance.</p>
+          </article>
+          <article class="card">
+            <div class="icon">⌁</div>
+            <h3>IA aplicada ao marketing</h3>
+            <p>Agentes, prompts, fluxos e automações para acelerar produção, atendimento e análise.</p>
+          </article>
+          <article class="card">
+            <div class="icon">▣</div>
+            <h3>Branding e design</h3>
+            <p>Identidade visual, direção criativa, peças digitais e apresentações mais claras e vendáveis.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✓</div>
+            <h3>Relatórios e melhoria contínua</h3>
+            <p>Métricas, aprendizados, histórico por cliente e próximos passos baseados em dados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="colonia">
+      <div class="wrap colony">
+        <div class="panel">
+          <h2>Não é só uma assistente. É uma colônia.</h2>
+          <p>A Saúva coordena uma operação inspirada em formigas especializadas: cada função tem um papel, mas todas trabalham para o mesmo formigueiro — o crescimento do cliente.</p>
+          <p>Isso permite organizar briefing, estratégia, copy, visual, mídia, dados, automação e revisão sem perder contexto.</p>
+          <a class="btn primary" href="https://wa.me/5519981993690?text=Quero%20montar%20uma%20opera%C3%A7%C3%A3o%20de%20marketing%20com%20IA" target="_blank" rel="noopener">Montar minha operação</a>
+        </div>
+        <div class="agents">
+          <div class="agent"><b>Saúva</b><span>Coordenação geral e contexto.</span></div>
+          <div class="agent"><b>Quenquém Briefing</b><span>Coleta informações e organiza demandas.</span></div>
+          <div class="agent"><b>Correição Estratégia</b><span>Define caminho, campanha e prioridade.</span></div>
+          <div class="agent"><b>Tecelã Copy</b><span>Costura textos, argumentos e CTAs.</span></div>
+          <div class="agent"><b>Carpinteira Visual</b><span>Estrutura design, layout e acabamento.</span></div>
+          <div class="agent"><b>Lava-pés Mídia</b><span>Ativa alcance, testes e tráfego pago.</span></div>
+          <div class="agent"><b>Pote-de-mel Dados</b><span>Guarda métricas, histórico e aprendizados.</span></div>
+          <div class="agent"><b>Tocandira Revisão</b><span>Faz a trava de qualidade antes da entrega.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Como a Saúva trabalha.</h2>
+          <p>Um fluxo simples para tirar demanda da conversa e transformar em entrega.</p>
+        </div>
+        <div class="process">
+          <div class="step"><div><h3>Entendimento</h3><p>Mapeamos objetivo, público, oferta, canal, prazo e tom de voz.</p></div></div>
+          <div class="step"><div><h3>Plano de ação</h3><p>A colônia divide a demanda entre estratégia, copy, visual, mídia, automação e revisão.</p></div></div>
+          <div class="step"><div><h3>Produção</h3><p>Criamos os entregáveis: posts, páginas, campanhas, textos, relatórios ou fluxos automatizados.</p></div></div>
+          <div class="step"><div><h3>Revisão e evolução</h3><p>Registramos contexto, aprendizados e próximos passos para a operação ficar mais inteligente a cada ciclo.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap cta">
+        <div>
+          <h2>Quer uma agência com IA trabalhando junto?</h2>
+          <p>Chame no WhatsApp e conte o que você precisa: conteúdo, campanha, automação, landing page ou uma operação completa.</p>
+        </div>
+        <a class="btn primary" href="https://wa.me/5519981993690?text=Oi%2C%20vim%20pelo%20site%20da%20Sa%C3%BAva%20IA" target="_blank" rel="noopener">19 98199-3690</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Saúva IA — Marketing, Publicidade e Inteligência Artificial</span>
+      <span>Estratégia + criação + automação + performance</span>
+    </div>
+  </footer>
+</body>
+</html>
